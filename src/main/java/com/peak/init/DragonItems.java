@@ -1,4 +1,4 @@
 package com.peak.init;
 
-public interface DragonItems {
+public class DragonItems {
 }

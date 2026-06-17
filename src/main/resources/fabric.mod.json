@@ -5,10 +5,11 @@
 	"name": "ender-dragon-deluxe-revitalised-version-two-point-o",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Me!"
+		"eeverest",
+		"LivingLemming"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
+		"homepage": "eeverest.dev",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
@@ -29,7 +30,7 @@
 		"ender-dragon-deluxe-revitalised-version-two-point-o.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.19.3",
+		"fabricloader": ">=0.16.10",
 		"minecraft": "~1.21.1",
 		"java": ">=21",
 		"fabric-api": "*"

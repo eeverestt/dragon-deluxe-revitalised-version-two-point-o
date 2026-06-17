@@ -3,7 +3,8 @@
   "package": "com.peak.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ExampleMixin"
+    "DragonEggBlockMixin",
+    "EndPortalBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -13,6 +14,7 @@
   },
   "client": [
     "client.CameraMixin",
+    "client.EndPortalBlockEntityRendererMixin",
     "client.GameRendererMixin"
   ]
 }

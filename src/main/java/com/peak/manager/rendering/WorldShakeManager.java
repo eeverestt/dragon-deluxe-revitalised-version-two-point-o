@@ -2,7 +2,7 @@ package com.peak.manager.rendering;
 
 public class WorldShakeManager {
     private static boolean worldShaking = true;
-    private static int worldShakeAmplitude = 3;
+    private static int worldShakeAmplitude = 1;
 
     public static boolean isWorldShaking() {
         return worldShaking;
