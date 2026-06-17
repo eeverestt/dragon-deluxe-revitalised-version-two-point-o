@@ -39,8 +39,7 @@ public class ScreenshakeRenderer {
         addShake(amplitude, amplitude, amplitude, 0, duration, type, ShakeFalloff.LINEAR);
     }
 
-    public void addShake(float amplitudeX, float amplitudeY, float amplitudeZ,
-                         float rotationAmplitude, int duration, ShakeType type, ShakeFalloff falloff) {
+    public void addShake(float amplitudeX, float amplitudeY, float amplitudeZ, float rotationAmplitude, int duration, ShakeType type, ShakeFalloff falloff) {
         activeShakes.add(new ScreenShakeEffect(
                 amplitudeX, amplitudeY, amplitudeZ,
                 rotationAmplitude, duration, type, falloff
