@@ -1,6 +1,7 @@
 package com.peak.init;
 
 import com.peak.Main;
+import com.peak.content.item.EyeOfGodItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

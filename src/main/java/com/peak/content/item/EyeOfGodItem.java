@@ -1,4 +1,4 @@
-package com.peak.init;
+package com.peak.content.item;
 
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
