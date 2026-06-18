@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#To",
+    "tNS",
+    "E.s"
+  ],
+  "key": {
+    "#": "block_factorys_bosses:knight_sword",
+    "T": "netherman:chance_totem",
+    "o": "block_factorys_bosses:kraken_tooth",
+    "t": "alexscaves:sandworm_gauntlet",
+    "N": "minecraft:ender_eye",
+    "S": "block_factorys_bosses:ice_gauntlet",
+    "E": "alexscaves:tectonic_shard",
+    ".": "minecraft:nether_star",
+    "s": "block_factorys_bosses:dragon_bone"
+  },
+  "result": {
+    "id": "ender-dragon-deluxe-revitalised-version-two-point-o:eye_of_god",
+    "count": 16
+  }
+}
