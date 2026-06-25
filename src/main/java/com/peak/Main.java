@@ -1,5 +1,6 @@
 package com.peak;
 
+import com.peak.init.DragonEntities;
 import com.peak.init.DragonItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -17,6 +18,8 @@ public class Main implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+        DragonEntities.init();
+
 		LOGGER.info("Hello Fabric world!");
 
         ServerTickEvents.END_SERVER_TICK.register((server) -> {

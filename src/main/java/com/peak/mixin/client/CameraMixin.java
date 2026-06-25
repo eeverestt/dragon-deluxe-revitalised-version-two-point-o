@@ -25,12 +25,6 @@ public class CameraMixin {
     @Shadow
     private Vec3d pos;
 
-    @Shadow
-    private float pitch;
-
-    @Shadow
-    private float yaw;
-
     @Unique
     private static float randomiseOffset(int offset) {
         float intensity = 0.2f;
