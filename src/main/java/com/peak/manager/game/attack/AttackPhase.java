@@ -1,20 +1,22 @@
 package com.peak.manager.game.attack;
 
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.boss.dragon.EnderDragonEntity;
+import com.peak.content.entity.DragonEntity;
 import net.minecraft.entity.boss.dragon.phase.Phase;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.decoration.EndCrystalEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class AttackPhase implements Phase {
-    protected final LivingEntity dragon;
+    protected final DragonEntity dragon;
+    protected final MinecraftServer server;
 
-    public AttackPhase(LivingEntity dragon) {
+    public AttackPhase(DragonEntity dragon, MinecraftServer server) {
         this.dragon = dragon;
+        this.server = server;
     }
 
     public boolean isSittingOrHovering() {
