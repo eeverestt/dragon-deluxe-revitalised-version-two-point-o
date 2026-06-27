@@ -3,7 +3,6 @@ package com.peak.content.entity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityPose;
-import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.item.ItemStack;
@@ -14,11 +13,11 @@ import net.minecraft.server.network.EntityTrackerEntry;
 import org.jetbrains.annotations.Nullable;
 
 public class DragonPart extends Entity {
-    public final DragonOne owner;
+    public final DragonEntity owner;
     public final String name;
     private final EntityDimensions partDimensions;
 
-    public DragonPart(DragonOne owner, String name, float width, float height) {
+    public DragonPart(DragonEntity owner, String name, float width, float height) {
         super(owner.getType(), owner.getWorld());
         this.partDimensions = EntityDimensions.changing(width, height);
         this.calculateDimensions();
@@ -45,7 +44,7 @@ public class DragonPart extends Entity {
     }
 
     public boolean damage(DamageSource source, float amount) {
-        return this.isInvulnerableTo(source) ? false : this.owner.damagePart(this, source, amount);
+        return this.owner.damage(source, amount);
     }
 
     public boolean isPartOf(Entity entity) {
