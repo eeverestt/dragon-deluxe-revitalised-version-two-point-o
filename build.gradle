@@ -39,9 +39,7 @@ dependencies {
 		exclude group: "maven.modrinth"
 	}
 
-	// custom audio engine
 	modImplementation "maven.modrinth:melody:1.0.10-1.21-fabric"
-	
 }
 
 processResources {

@@ -5,11 +5,10 @@
 	"name": "ender-dragon-deluxe-revitalised-version-two-point-o",
 	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"eeverest",
-		"LivingLemming"
+		"LivingLemming",
+		"eeverest"
 	],
 	"contact": {
-		"homepage": "eeverest.dev",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",

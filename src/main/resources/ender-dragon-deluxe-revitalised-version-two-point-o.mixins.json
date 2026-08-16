@@ -4,9 +4,13 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "DragonEggBlockMixin",
+    "DragonFireballEntityMixin",
+    "EnderDragonEntityMixin",
+    "EnderDragonFightAccessor",
     "EnderDragonFightMixin",
     "EnderEyeItemMixin",
-    "EndPortalBlockMixin"
+    "EndPortalBlockMixin",
+    "ProjectileUtilMixin"
   ],
   "injectors": {
     "defaultRequire": 1

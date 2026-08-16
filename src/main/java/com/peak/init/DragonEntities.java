@@ -4,6 +4,7 @@ import com.peak.Main;
 import com.peak.content.entity.DragonEntity;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
@@ -14,8 +15,8 @@ import net.minecraft.util.Identifier;
 public class DragonEntities {
     public static final EntityType<DragonEntity> DRAGON_ENTITY_ENTITY_TYPE = register(
             "dragon_entity",
-            EntityType.Builder.<DragonEntity>create(DragonEntity::new, SpawnGroup.MISC)
-                    .dimensions(0.75f, 1.75f)
+            EntityType.Builder.create(DragonEntity::new, SpawnGroup.MONSTER)
+                    .makeFireImmune().dimensions(3.5f, 2.5f).passengerAttachments(3.0F).maxTrackingRange(10)
     );
 
     private static <T extends Entity> EntityType<T> register(String name, EntityType.Builder<T> builder) {
@@ -28,7 +29,7 @@ public class DragonEntities {
     }
 
     public static void registerAttributes() {
-        FabricDefaultAttributeRegistry.register(DRAGON_ENTITY_ENTITY_TYPE, DragonEntity.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(DRAGON_ENTITY_ENTITY_TYPE, DragonEntity.createDragonAttributes());
     }
 
     public static void init() {
