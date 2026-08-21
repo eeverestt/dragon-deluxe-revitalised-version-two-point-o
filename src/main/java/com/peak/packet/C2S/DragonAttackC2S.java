@@ -1,6 +1,7 @@
 package com.peak.packet.C2S;
 
 import com.peak.Main;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;

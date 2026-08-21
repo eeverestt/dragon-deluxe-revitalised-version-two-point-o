@@ -1,9 +1,11 @@
 package com.peak.manager.game.attack;
 
+import com.peak.Client;
 import com.peak.content.entity.DragonEntity;
+import com.peak.openal.DynamicTrack;
+import com.peak.openal.MusicPlayer;
 import net.minecraft.entity.boss.dragon.phase.Phase;
 import net.minecraft.entity.boss.dragon.phase.PhaseType;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
 public class InitPhase extends AttackPhase {
@@ -11,12 +13,13 @@ public class InitPhase extends AttackPhase {
 
     public InitPhase(AttackPhaseManager manager, DragonEntity dragon, World world) {
         super(manager, dragon, world);
-
     }
 
     @Override
     public void tick() {
         initCounter++;
+
+        if (initCounter == 1) MusicPlayer.obstructedVision(true);
 
         if (initCounter >= 60) {
             this.manager.nextPhase();

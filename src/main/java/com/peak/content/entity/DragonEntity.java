@@ -24,6 +24,7 @@ import net.minecraft.entity.ai.pathing.PathNode;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.dragon.EnderDragonEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonFight;
 import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.entity.boss.dragon.phase.Phase;
 import net.minecraft.entity.boss.dragon.phase.PhaseType;
@@ -426,6 +427,18 @@ public class DragonEntity extends EnderDragonEntity {
                 entity.fallDistance = 0.0F;
             }
         }
+    }
+
+    @Override
+    public void onRemoved() {
+        super.onRemoved();
+    }
+
+    @Override
+    public void onDeath(DamageSource damageSource) {
+
+
+        super.onDeath(damageSource);
     }
 
     private void damageLivingEntities(List<Entity> entities, float amount) {

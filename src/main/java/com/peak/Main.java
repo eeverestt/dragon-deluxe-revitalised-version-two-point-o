@@ -22,22 +22,21 @@ import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Main implements ModInitializer {
-	public static final String MODID = "ender-dragon-deluxe-revitalised-version-two-point-o";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
+    public static final String MODID = "ender-dragon-deluxe-revitalised-version-two-point-o";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MODID);
 
     public static boolean canEnderDragonSpawn = true;
 
-	@Override
-	public void onInitialize() {
+    @Override
+    public void onInitialize() {
         DragonEntities.init();
-
-		LOGGER.info("--- Dragon Mod Loaded ---");
 
         PayloadTypeRegistry.playC2S().register(
                 DragonAttackC2S.ID,
@@ -103,4 +102,8 @@ public class Main implements ModInitializer {
             }
         });
 	}
+
+    public static Identifier id(String s) {
+        return Identifier.of(MODID, s);
+    }
 }

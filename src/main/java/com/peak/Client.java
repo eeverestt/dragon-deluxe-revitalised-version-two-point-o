@@ -1,26 +1,39 @@
 package com.peak;
 
+import com.peak.api.event.AudioEngineEvents;
 import com.peak.client.DragonRenderers;
 import com.peak.manager.rendering.screenshake.ScreenshakeRenderer;
+import com.peak.openal.DragonAudioEngine;
+import com.peak.openal.MusicPlayer;
 import com.peak.packet.C2S.DragonAttackC2S;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.fabricmc.fabric.api.entity.event.v1.ServerEntityWorldChangeEvents;
 import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.Camera;
+import net.minecraft.client.session.telemetry.WorldLoadedEvent;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.boss.dragon.EnderDragonEntity;
 import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldEvents;
 
 import java.util.List;
 import java.util.Optional;
 
 public class Client implements ClientModInitializer {
+    public static final DragonAudioEngine AUDIO_ENGINE = new DragonAudioEngine();
+
+    boolean bool = false;
+
     @Override
     public void onInitializeClient() {
         initEvents();
@@ -36,7 +49,19 @@ public class Client implements ClientModInitializer {
             manager.applyShakeToCamera(camera, matrices, tickDelta);
         });
 
+        ClientPlayConnectionEvents.JOIN.register(new AudioEngineEvents.Join());
+        ClientPlayConnectionEvents.DISCONNECT.register(new AudioEngineEvents.Disconnect());
+        ClientTickEvents.END_CLIENT_TICK.register(new AudioEngineEvents.Tick());
+
         ClientPreAttackCallback.EVENT.register(this::onPreAttack);
+
+        ServerEntityWorldChangeEvents.AFTER_PLAYER_CHANGE_WORLD.register(
+                (player, origin, destination) -> {
+                    if (destination.getRegistryKey() == World.END) {
+                        MusicPlayer.obstructedVision(MusicPlayer.getBattle());
+                    }
+                }
+        );
 
         DragonRenderers.registerModelLayers();
         DragonRenderers.registerRenderers();
